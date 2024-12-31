@@ -3,46 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SiuToken</title>
+    <title>SiuToken 留言板</title>
 </head>
 <body>
-    <!-- 使用 <div> 包裹文字和圖片，並設定置中樣式 -->
-    <div style="text-align: center; margin: 20px;">
-        <h1>✨ Welcome to SiuToken! ✨</h1>
-        <img src="/static/SiuToken.png" alt="SiuToken Logo" width="200">
-        <h2>✨ 隆重介紹！✨</h2>
-        <p>我個人專屬嘅虛擬貨幣 <b>「SiuToken」</b>，代號 <b>「Siu」</b> 已經正式喺區塊鏈上市啦！🎉 你可以喺以太坊平台 <b>Metamask Sepolia</b> 搵到我嘅代幣！🚀</p>
-    </div>
-
-    <!-- SiuToken 功能介紹區域 -->
-    <div style="text-align: center; margin: 20px;">
-        <h3>SiuToken 功能介紹：</h3>
-        <ul style="display: inline-block; text-align: left;">
-            <li>手續費機制：每次轉賬時會扣除一定比例的手續費（預設為1%）。</li>
-            <li>最大供應量：限制總發行量，防止超量發行。</li>
-            <li>擁有者轉移功能：可以將控制權轉移給其他地址。</li>
-            <li>基於ERC20標準：符合ERC20協議，具有標準功能。</li>
-        </ul>
-    </div>
-
-    <!-- 留言功能區域 -->
-    <div style="text-align: center; margin: 20px;">
-        <h3>💬 留言功能</h3>
-        <form action="/add_message" method="post">
-            <textarea name="message" rows="4" cols="50" placeholder="請輸入留言"></textarea><br>
-            <button type="submit">提交留言</button>
-        </form>
-    </div>
-
-    <!-- 留言區域 -->
-    <div style="text-align: center; margin: 20px;">
-        <h3>🎉 留言區：</h3>
-        <ul style="display: inline-block; text-align: left;">
-            {% for msg in messages %}
-                <li>{{ msg }}</li>
-            {% endfor %}
-        </ul>
-    </div>
+    <h1>歡迎來到 SiuToken 留言板</h1>
+    <form action="/" method="POST">
+        <input type="text" name="message" placeholder="請輸入留言" required>
+        <button type="submit">提交留言</button>
+    </form>
+    <h2>留言列表：</h2>
+    <ul>
+        {% for message in messages %}
+        <li>{{ message.content }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
 
