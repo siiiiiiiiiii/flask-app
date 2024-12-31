@@ -1,74 +1,65 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to SiuToken</title>
+    <title>Welcome to SiuToken!</title>
     <style>
         body {
-            text-align: center;
             font-family: Arial, sans-serif;
+            text-align: center;
             margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: black;
+            color: white;
             padding: 20px;
-            background-color: #f9f9f9;
-        }
-        h1 {
-            margin-top: 20px;
-            font-size: 2.5em;
-            color: #333;
-        }
-        p, li {
-            font-size: 1.2em;
-            line-height: 1.6em;
-            color: #555;
+            font-size: 24px;
         }
         img {
-            margin: 20px 0;
-            border-radius: 10px;
+            margin-top: 20px;
+            width: 400px; /* 放大圖片寬度 */
+            height: auto; /* 確保圖片比例 */
         }
-        ul {
+        .content {
+            padding: 20px;
+            font-size: 18px;
+        }
+        .features {
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .features ul {
             list-style-type: none;
             padding: 0;
         }
-        ul li {
+        .features ul li {
             margin: 10px 0;
-            text-align: left;
         }
-        .intro {
-            margin: 20px auto;
-            padding: 15px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            max-width: 800px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .intro ul {
-            margin-top: 20px;
+        .features ul li::before {
+            content: "◆";
+            color: blue;
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>✨ Welcome to SiuToken! ✨</h1>
-    <img src="{{ url_for('static', filename='SiuToken.png') }}" alt="SiuToken Logo" width="300">
-    <div class="intro">
-        <p>
-            ✨隆重介紹！✨  
-            我個人專屬嘅虛擬貨幣 <b>「SiuToken」</b>，代號 <b>「Siu」</b> 已經正式喺區塊鏈上市啦！🎉  
-            你可以喺以太坊平台 <b>Metamask Sepolia</b> 搵到我嘅代幣！🚀  
-        </p>
-        <p>
-            ✨Grand Introduction!✨  
-            My personal virtual currency, <b>"SiuToken"</b>, with the ticker <b>"Siu"</b>, has officially been launched on the blockchain! 🎉  
-            You can find my token on the Ethereum platform using <b>Metamask Sepolia</b>. 🚀  
-        </p>
-        <h2>SiuToken 功能：</h2>
+    <header>✨ Welcome to SiuToken! ✨</header>
+    <img src="{{ url_for('static', filename='SiuToken.png') }}" alt="SiuToken Logo">
+    <div class="content">
+        <p>✨隆重介紹！✨ 我個人專屬嘅虛擬貨幣「SiuToken」，代號「Siu」已經正式喺區塊鏈上市啦！🎉 你可以喺以下太坊平台 Metamask Sepolia 搵到我嘅代幣！🚀</p>
+        <p>✨Grand Introduction!✨ My personal virtual currency, "SiuToken", with the ticker "Siu", has officially been launched on the blockchain! 🎉 You can find my token on the Ethereum platform using Metamask Sepolia. 🚀</p>
+    </div>
+    <div class="features">
+        <h2>SiuToken 功能介紹</h2>
         <ul>
-            <li>🔹 <b>手續費機制：</b> 每次轉賬時會扣除一定比例的手續費，手續費可調整（預設為1%），並轉入指定的手續費接收地址。</li>
-            <li>🔹 <b>最大供應量：</b> 限制了代幣的總發行量為固定數值，防止超量發行。</li>
-            <li>🔹 <b>只有擁有者能修改手續費：</b> 手續費比例可以由擁有者調整，但不允許超過100%。</li>
-            <li>🔹 <b>擁有者轉移功能：</b> 代幣擁有者可以將控制權移交給其他地址。</li>
-            <li>🔹 <b>基於ERC20標準：</b> 符合ERC20協議，具有標準的代幣操作功能（如轉賬和餘額查詢）。</li>
+            <li>手續費機制：每次轉賬時會扣除一定比例的手續費（預設為1%），並轉入指定的手續費接收地址。</li>
+            <li>最大供應量：限制了代幣的總發行量為固定數值，防止超量發行。</li>
+            <li>只有擁有者能修改手續費：手續費比例可以由擁有者調整，但不允許超過100%。</li>
+            <li>擁有者轉移功能：代幣擁有者可以將控制權移交給其他地址。</li>
+            <li>基於ERC20標準：符合ERC20協議，具有標準的代幣操作功能（如轉賬和餘額查詢）。</li>
         </ul>
     </div>
 </body>
