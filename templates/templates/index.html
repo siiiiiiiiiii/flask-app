@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiuToken 留言板</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .logo {
+            width: 150px;
+        }
+        .message-box {
+            margin: 20px 0;
+        }
+        .message-list {
+            margin-top: 20px;
+        }
+        .message-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='SiuToken.png') }}" alt="SiuToken Logo" class="logo">
+        <h1>✨ Welcome to SiuToken! ✨</h1>
+        <h2>隆重介紹！</h2>
+        <p>我個人專屬嘅虛擬貨幣 <strong>「SiuToken」</strong>，代號 <strong>「Siu」</strong> 已經正式喺區塊鏈上市啦！🎉</p>
+        <p>你可以喺以太坊平台 <strong>Metamask Sepolia</strong> 搵到我嘅代幣！🚀</p>
+        <h3>SiuToken 功能介紹：</h3>
+        <ul>
+            <li>手續費機制：每次轉賬時會扣除一定比例的手續費，手續費可調整（預設為1%）。</li>
+            <li>最大供應量：限制了代幣的總發行量為固定數值，防止超量發行。</li>
+            <li>只有擁有者能修改手續費：手續費比例可以由擁有者調整，但不允許超過100%。</li>
+            <li>擁有者轉移功能：代幣擁有者可以將控制權移交給其他地址。</li>
+            <li>基於ERC20標準：符合ERC20協議，具有標準的代幣操作功能（如轉賬和餘額查詢）。</li>
+        </ul>
+        <hr>
+        <h3>留言功能</h3>
+        <form method="POST" class="message-box">
+            <input type="text" name="message" placeholder="請輸入留言" required>
+            <button type="submit">提交留言</button>
+        </form>
+        <div class="message-list">
+            <h4>留言列表：</h4>
+            {% for message in messages %}
+                <div class="message-item">{{ message.content }}</div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+
