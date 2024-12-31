@@ -1,3 +1,4 @@
-flask
-flask-sqlalchemy
+Flask==3.1.0
+Flask-SQLAlchemy==3.0.0
+gunicorn==23.0.0
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+k<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,15 +6,33 @@
     <title>SiuToken 留言板</title>
 </head>
 <body>
-    <h1>歡迎來到 SiuToken 留言板</h1>
-    <form action="/add" method="POST">
-        <input type="text" name="content" placeholder="請輸入留言">
+    <h1>✨ Welcome to SiuToken! ✨</h1>
+    <img src="{{ url_for('static', filename='SiuToken.png') }}" alt="SiuToken Logo" width="300">
+    
+    <h2>✨ 隆重介紹！✨</h2>
+    <p>我個人專屬嘅虛擬貨幣 <b>「SiuToken」</b>，代號 <b>「Siu」</b> 已經正式喺區塊鏈上市啦！🎉<br>
+    你可以喺以太坊平台 <b>Metamask Sepolia</b> 搵到我嘅代幣！🚀</p>
+    
+    <h3>SiuToken 功能介紹：</h3>
+    <ul>
+        <li>手續費機制：每次轉賬時會扣除一定比例的手續費（預設為1%）。</li>
+        <li>最大供應量：限制總發行量，防止超量發行。</li>
+        <li>只有擁有者能修改手續費比例。</li>
+        <li>擁有者轉移功能：擁有者可轉移控制權。</li>
+        <li>基於ERC20標準，符合標準的代幣操作功能。</li>
+    </ul>
+
+    <h2>留言功能</h2>
+    <form method="POST">
+        <textarea name="content" placeholder="請輸入留言" required></textarea>
+        <br>
         <button type="submit">提交留言</button>
     </form>
-    <h2>留言列表：</h2>
+
+    <h3>留言區：</h3>
     <ul>
         {% for message in messages %}
-        <li>{{ message.content }}</li>
+            <li>{{ message.content }}</li>
         {% endfor %}
     </ul>
 </body>
